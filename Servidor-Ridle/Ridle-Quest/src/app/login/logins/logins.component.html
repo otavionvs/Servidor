@@ -1,7 +1,26 @@
-<div>
-    <input placeholder="Username" [(ngModel)]='username'>
+<div class="fundo">
+    <div class="centro">
+    <h1 class="ridle">
+        RidleQuest
+    </h1>
+    </div>
+<div class="molde">
+    <div class="dentro">
+    <h1 class="login">
+        Login
+    </h1>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <input placeholder="Username" [(ngModel)]='username' class="campos">
     <br />
-    <input placeholder="Password" [(ngModel)]='password' type="password">
+    <input placeholder="Password" [(ngModel)]='password' type="password" class="campos">
     <br />
-    <button (click)="logar()">Logar</button>
+    <button  (click)="logar()" class="neon" style="margin-top: 80px;">Logar</button >
+    <span style="margin-left: 5px;">
+    <button  (click)="logar()" class="neon">Registrar</button>
+    </span>
+    </div>
+</div>
 </div>

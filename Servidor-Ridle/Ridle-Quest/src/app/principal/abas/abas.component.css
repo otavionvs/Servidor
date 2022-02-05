@@ -1,0 +1,18 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.logo{
+    border: black 1px solid;
+    border-radius: 3600px;
+    width: 85px;
+    height: 85px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.DentroLogo{
+    font-size: 45px;
+    margin-left: 8px;
+    margin-top: 14px;
+}

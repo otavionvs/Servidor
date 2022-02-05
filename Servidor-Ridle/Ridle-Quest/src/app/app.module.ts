@@ -11,7 +11,8 @@ import { AbasComponent } from './principal/abas/abas.component';
 
 
 const routes: Routes = [
-  { path: '', component: LoginsComponent }
+  { path: '', component: LoginsComponent },
+  { path: 'principal', component: AbasComponent }
 ];
 
 @NgModule({
