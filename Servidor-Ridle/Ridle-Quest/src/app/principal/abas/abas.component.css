@@ -4,7 +4,7 @@
 }
 
 .logo{
-    border: black 1px solid;
+    border: white 1px solid;
     border-radius: 3600px;
     width: 85px;
     height: 85px;
@@ -15,4 +15,15 @@
     font-size: 45px;
     margin-left: 8px;
     margin-top: 14px;
+    color: white;
+}
+.abas{
+    background-color: black;
+    
+}
+
+.meio{
+    background-color: white;
+    height: 1000px;
+    width: 1350px;
 }
