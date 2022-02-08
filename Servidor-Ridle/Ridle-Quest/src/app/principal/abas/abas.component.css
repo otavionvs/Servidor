@@ -1,9 +1,9 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
 }
 
-.logo{
+.logo {
     border: white 1px solid;
     border-radius: 3600px;
     width: 85px;
@@ -11,19 +11,19 @@
     margin-top: 10px;
     margin-left: 10px;
 }
-.DentroLogo{
+
+.DentroLogo {
     font-size: 45px;
     margin-left: 8px;
     margin-top: 14px;
     color: white;
 }
-.abas{
+
+.abas {
     background-color: black;
-    
 }
 
-.meio{
+.meio {
     background-color: white;
     height: 1000px;
-    width: 1350px;
 }

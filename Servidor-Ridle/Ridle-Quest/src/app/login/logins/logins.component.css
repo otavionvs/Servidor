@@ -1,18 +1,18 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
 }
 
-.fundo{
+.fundo {
     width: 100%;
     height: 100%;
     position: absolute;
     background-image: url("https://www.cqcs.com.br/wp-content/uploads/2019/05/ataque-hacker-e1559060933534.jpeg");
     background-repeat: no-repeat;
-    background-size: 220vh 50vw;
+    background-size: 100%;
 }
 
-.molde{
+.molde {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,45 +25,43 @@
     color: white;
     -moz-box-shadow: 0px 20px 20px #26bd46;
     -webkit-box-shadow: 0px 20px 20px #26bd46;
-    
 }
+
 .neon {
     font-size: 14px;
     font-weight: 15;
     text-decoration: none;
-    
     display: inline-block;
     color: #26bd46;
     padding: 5px 15px;
     border: #26bd46 3px solid;
     border-radius: 10px;
-  
     box-shadow: inset 0 0 32px 0 #26bd46, 0 0 32px 0 #26bd46;
     text-shadow: 0 0 8px hsl(0 0% 100% / 0.3), 0 0 32px currentColor;
-  
     position: relative;
-  }
-  
-  /* Reflexo do botão */
-  .neon::before {
+}
+
+
+/* Reflexo do botão */
+
+.neon::before {
     content: "";
     position: absolute;
     top: 120%;
     left: 0;
-    
     background: #26bd46;
-    
     width: 100%;
     height: 100%;
-  
     transform: perspective(64px) rotateX(40deg) scale(1, 0.35);
     filter: blur(64px);
     opacity: 0.7;
     pointer-events: none;
-  }
-  
-  /* Estilos para hover */
-  .neon::after {
+}
+
+
+/* Estilos para hover */
+
+.neon::after {
     content: "";
     position: absolute;
     top: 0;
@@ -75,47 +73,46 @@
     background-color: #26bd46;
     z-index: -1;
     transition: opacity 100ms linear;
-  }
-  
-  .neon:hover::before,
-  .neon:hover::after {
+}
+
+.neon:hover::before,
+.neon:hover::after {
     opacity: 1;
-  }
-  
-  .neon:hover {
+}
+
+.neon:hover {
     color: #31202b;
     text-shadow: none;
-  }
+}
 
-
-  @keyframes NeonCampos {
-      from {
-          filter: drop-shadow(0 0 0 #11ca39);
-      }
-      to {
+@keyframes NeonCampos {
+    from {
+        filter: drop-shadow(0 0 0 #11ca39);
+    }
+    to {
         filter: drop-shadow(0 0 30px #26bd46);
-      }
-  }
+    }
+}
 
-  
-  .campos{
+.campos {
     color: #26bd46;
     animation: NeonCampos 3s alternate infinite ease-in-out;
     background-color: rgba(0, 0, 0, 0.007);
 }
 
-.login{
+.login {
     color: #26bd46;
     font-family: sans-serif;
     font-size: 40px;
 }
-.ridle{
+
+.ridle {
     color: rgba(0, 0, 0, 0.521);
     text-shadow: 0 0 8px rgb(0, 255, 76), 0 0 32px currentColor;
     font-size: 90px;
 }
 
-.centro{
+.centro {
     display: flex;
     align-items: center;
     justify-content: center;

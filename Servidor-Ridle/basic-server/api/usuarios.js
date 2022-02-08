@@ -1,26 +1,26 @@
-inserirRota('/buscar_usuario',
-    function(dados, resposta) {
-        console.log(dados);
+// inserirRota('/buscar_usuario',
+//     function(dados, resposta) {
+//         console.log(dados);
 
-        resposta({ ok: "Requisição efetuada com sucesso!" });
-    });
+//         resposta({ ok: dados });
+//     });
 
 inserirRota('/criar_usuario',
     function(dados, resposta) {
         console.log(dados);
 
         if (!dados.name) {
-            return resposta({ erro: 'É necessario' })
+            return resposta({ erro: 'É necessario arrumar nome' })
         }
-        if (!dados.name) {
-            return resposta({ erro: 'É necessario' })
+        if (!dados.nickname) {
+            return resposta({ erro: 'É necessario arrumar nick' })
         }
 
 
         database(`INSERT INTO USER(
-         NOME, NICKNAME
+         NAME, NICKNAME, PASSWORD
             )VALUES 
-    ("${dados.nome}", "${daos.nickname}")`)
+    ("${dados.name}", "${dados.nickname}", "${dados.password}")`)
             .then(result => {
                 console.log('Usuario Inserido com Sucesso!');
                 resposta({ message: 'Usuario Inserido com Sucesso!' });
@@ -29,6 +29,48 @@ inserirRota('/criar_usuario',
                 resposta({ erro: 'Erro ao inserir o Usuario!' });
             });
     })
+
+inserirRota('/buscar_usuario',
+    function(dados, resposta) {
+        console.log(dados);
+        database('SELECT * FROM USER').then(result => {
+            resposta({ list: result });
+        }).catch(erro => {
+            resposta({ erro: "Erro ao buscar os usuários!" });
+        });
+    });
+
+inserirRota('/login',
+    function(dados, resposta) {
+        console.log(dados);
+        database(`SELECT * FROM USER WHERE NICKNAME = "${dados.nickname}"
+     AND PASSWORD = "${dados.password} LIMIT 1"`)
+            .then(result => {
+                console.log('result:', result);
+                resposta({ user: result[0] });
+            }).catch(erro => {
+                resposta({ erro: 'Erro ao buscar os usuários' });
+            });
+    });
+
+
+// fetch('/api/buscar_usuario', {
+//     method: 'POST',
+//     body: JSON.stringify(
+//         {
+//             nome: "Otavio", nickname: "Tavin"
+//         }
+//     ),
+//     headers: {
+//         "Content-Type": "application/json"
+//     }
+// }).then(function (result) {
+//     return result.json();
+// }).then(function (dados) {
+//     console.log(dados);
+// }).catch(function (erro) {
+//     console.log(erro);
+// });
 
 //fetch('http://localhost:3000/api/buscar_usuario',{method: 'POST'})
 
@@ -44,3 +86,5 @@ inserirRota('/criar_usuario',
         'Content-Type': 'application/json'
     }
     }) */
+
+//select, fetch(pegar lista), proxy
