@@ -8,25 +8,26 @@ export class UsuarioService {
 
   constructor() { }
 
-  // login(username, password){
-  //   return new Promise((resolve, reject) => {
-  //     fetch('/api/login', {
-  //       method: 'POST',
-  //       body: JSON.stringify(
-  //           {
-  //             username: username, password: password
-  //           }
-  //       ),
-  //       headers: {
-  //           "Content-Type": "application/json"
-  //       }
-  //   }).then(function (result) {
-  //       return result.json();
-  //   }).then(resolve).catch(reject);
+  login(username, password){
+    return new Promise((resolve, reject) => {
+      fetch('/api/login', {
+        method: 'POST',
+        body: JSON.stringify(
+            {
+              username: username, password: password,
+              
+            }
+        ),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (result) {
+        return result.json();
+    }).then(resolve).catch(reject);
     
-  //   });
+    });
 
-  //     }
+      }
 
   buscarUsuarios(){
     return new Promise((resolvido, rejeitado) => {
@@ -40,18 +41,19 @@ export class UsuarioService {
       .catch(rejeitado);
     })
   }
+}
 
-  Login(Usuario, Senha){
-    return new Promise((resolvido, rejeitado) => {
-      fetch('/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-    })
-  }
+  // Login(Usuario, Senha){
+  //   return new Promise((resolvido, rejeitado) => {
+  //     fetch('/api/login', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       }
+  //     })
+  //   })
+  // }
     
-  }
+  // }
 
 

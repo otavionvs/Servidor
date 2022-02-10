@@ -9,18 +9,18 @@ inserirRota('/criar_usuario',
     function(dados, resposta) {
         console.log(dados);
 
-        if (!dados.name) {
-            return resposta({ erro: 'É necessario arrumar nome' })
-        }
         if (!dados.nickname) {
             return resposta({ erro: 'É necessario arrumar nick' })
+        }
+        if (!dados.password) {
+            return resposta({ erro: 'É necessario arrumar password' })
         }
 
 
         database(`INSERT INTO USER(
-         NAME, NICKNAME, PASSWORD
+         NICKNAME, PASSWORD
             )VALUES 
-    ("${dados.name}", "${dados.nickname}", "${dados.password}")`)
+    ("${dados.nickname}", "${dados.password}")`)
             .then(result => {
                 console.log('Usuario Inserido com Sucesso!');
                 resposta({ message: 'Usuario Inserido com Sucesso!' });

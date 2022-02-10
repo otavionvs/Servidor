@@ -11,6 +11,7 @@ export class LoginsComponent implements OnInit {
 
   username = '';
   password = '';
+  lista = [];
 
   constructor(
     private usuarioService: UsuarioService,
@@ -21,10 +22,27 @@ export class LoginsComponent implements OnInit {
     this.usuarioService.buscarUsuarios()
     .then(resultado => {
       console.log('RESULTADO', resultado);
+      this.lista = resultado.list;
+      this.logar(this.lista);
     }).catch(erro => {
       console.log('Erro ao buscar usuarios', erro)
     })
+    
   }
+  
+  logar(item){
+    console.log("Deu", item[0].NICKNAME, item[0].PASSWORD)
+    
+    for(let i = 0; i < item.lenght; i ++){
+      if (item[i].NICKNAME == this.username && item[i].PASSWORD == this.password) {
+          localStorage.setItem('USER', this.username);
+          this.router.navigate(['/principal']);
+        } else {
+          alert('Usuário não cadastrado!');
+        }
+    }
+  
+  
 
   //logar() {
   //   console.log(this.username, this.password);
@@ -33,14 +51,14 @@ export class LoginsComponent implements OnInit {
   //     { login: 'a', password: 'a' },
   //   ];
 
-  //   const find = users.find(e => e.login == this.username && e.password == this.password);
+    // const find = users.find(e => e.login == this.username && e.password == this.password);
 
-  //   if (find) {
-  //     localStorage.setItem('USER', this.username);
-  //     this.router.navigate(['/principal']);
-  //   } else {
-  //     alert('Usuário não cadastrado!');
-  //   }
+    // if (find) {
+    //   localStorage.setItem('USER', this.username);
+    //   this.router.navigate(['/principal']);
+    // } else {
+    //   alert('Usuário não cadastrado!');
+    // }
   // }
 
 //   fetch('/api/login', {
@@ -62,4 +80,41 @@ export class LoginsComponent implements OnInit {
 // }).catch(function (erro) {
 //     console.log(erro);
 // });
+// logar(item){
+//   // this.usuarioService.buscarUsuarios()
+//   //   .then(resultado => {
+//   //     if(resultado.nickname = this.username){
+//   //       this.router.navigate(['/principal']);
+//   //     }
+//   //     console.log('RESULTADO', resultado);
+//   //   }).catch(erro => {
+//   //     console.log('Erro ao buscar usuarios', erro)
+//   //   })
+
+    
+// //   fetch('/api/login', {
+// //     method: 'POST',
+// //     body: JSON.stringify(
+// //         {
+// //           username: this.username, password: this.password
+// //         }
+// //     ),
+// //     headers: {
+// //         "Content-Type": "application/json"
+// //     }
+// // }).then(function (result) {
+// //     return result.json();
+// // }).then(function (dados) {
+
+// //   if(dados.user)
+// //     console.log(dados, "Deu Certo");
+// // }).catch(function (erro) {
+// //     console.log(erro);
+// // });
+
+// console.log("Deu", item[0].NICKNAME)
+
+// }
+
+
 }
