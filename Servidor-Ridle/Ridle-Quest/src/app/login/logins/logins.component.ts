@@ -31,35 +31,41 @@ export class LoginsComponent implements OnInit {
   }
   
   logar(item){
-    console.log("Deu", item[0].NICKNAME, item[0].PASSWORD)
+    console.log("Deu", item[0].NICKNAME, item[0].PASSWORD);
     
-    for(let i = 0; i < item.lenght; i ++){
-      if (item[i].NICKNAME == this.username && item[i].PASSWORD == this.password) {
+  
+      if (item[0].NICKNAME == this.username && item[0].PASSWORD == this.password) {
           localStorage.setItem('USER', this.username);
           this.router.navigate(['/principal']);
+          console.log('Deu 2222');
+          
         } else {
           alert('Usuário não cadastrado!');
+          console.log('Não Deu 2222');
         }
-    }
+    
+  }
+}
   
   
 
-  //logar() {
-  //   console.log(this.username, this.password);
-  //   const users = [
-  //     { login: 'otavio', password: '123' },
-  //     { login: 'a', password: 'a' },
-  //   ];
+//   logar() {
+//     console.log(this.username, this.password);
+//     const users = [
+//       { login: 'otavio', password: '123' },
+//       { login: 'a', password: 'a' },
+//     ];
 
-    // const find = users.find(e => e.login == this.username && e.password == this.password);
+//     const find = users.find(e => e.login == this.username && e.password == this.password);
 
-    // if (find) {
-    //   localStorage.setItem('USER', this.username);
-    //   this.router.navigate(['/principal']);
-    // } else {
-    //   alert('Usuário não cadastrado!');
-    // }
-  // }
+//     if (find) {
+//       localStorage.setItem('USER', this.username);
+//       this.router.navigate(['/principal']);
+//     } else {
+//       alert('Usuário não cadastrado!');
+//     }
+//   }
+// }
 
 //   fetch('/api/login', {
 //     method: 'POST',
@@ -117,4 +123,4 @@ export class LoginsComponent implements OnInit {
 // }
 
 
-}
+
