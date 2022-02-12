@@ -4,26 +4,40 @@
 }
 
 .logo {
-    border: white 1px solid;
+    border: #26bd46 1px solid;
     border-radius: 3600px;
     width: 85px;
     height: 85px;
-    margin-top: 10px;
-    margin-left: 10px;
+    margin-top: 0px;
+    margin-left: 70px;
+    animation: NeonCampos 3s alternate infinite ease-in-out;
+    background-color: rgba(0, 0, 0, 0.007);
 }
 
 .DentroLogo {
     font-size: 45px;
-    margin-left: 8px;
-    margin-top: 14px;
-    color: white;
+    margin-left: 10px;
+    margin-top: 10px;
+    color: #26bd46;
+    animation: NeonCampos 3s alternate infinite ease-in-out;
+    background-color: rgba(0, 0, 0, 0.007);
 }
 
 .abas {
     background-color: black;
+    height: 125px;
 }
 
 .meio {
     background-color: white;
     height: 1000px;
+}
+
+@keyframes NeonCampos {
+    from {
+        filter: drop-shadow(0 0 0 #11ca39);
+    }
+    to {
+        filter: drop-shadow(0 0 30px #26bd46);
+    }
 }

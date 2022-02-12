@@ -11,7 +11,7 @@ export class LoginsComponent implements OnInit {
 
   username = '';
   password = '';
-  lista = [];
+  
 
   constructor(
     private usuarioService: UsuarioService,
@@ -19,30 +19,31 @@ export class LoginsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.usuarioService.buscarUsuarios()
-    .then(resultado => {
-      console.log('RESULTADO', resultado);
-      this.lista = resultado.list;
-      this.logar(this.lista);
-    }).catch(erro => {
-      console.log('Erro ao buscar usuarios', erro)
-    })
+    
     
   }
   
-  logar(item){
-    console.log("Deu", item[0].NICKNAME, item[0].PASSWORD);
-    
-  
-      if (item[0].NICKNAME == this.username && item[0].PASSWORD == this.password) {
-          localStorage.setItem('USER', this.username);
-          this.router.navigate(['/principal']);
-          console.log('Deu 2222');
-          
-        } else {
-          alert('Usuário não cadastrado!');
-          console.log('Não Deu 2222');
-        }
+  logar(){
+    this.usuarioService.buscarUsuarios()
+    .then(resultado => {
+      
+      const find = resultado.list.find(e => e.NICKNAME == this.username && e.PASSWORD == this.password);
+
+      if (find) {
+        localStorage.setItem('USER', this.username);
+        this.router.navigate(['/principal']);
+        console.log('Deu 2222');
+        
+      } else {
+        alert('Usuário não cadastrado!');
+        console.log('Não Deu 2222');
+      }
+
+    }).catch(erro => {
+      console.log('Erro ao buscar usuarios', erro)
+    })
+   
+      
     
   }
 }
