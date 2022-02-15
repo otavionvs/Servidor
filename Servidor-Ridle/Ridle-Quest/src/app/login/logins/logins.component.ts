@@ -25,7 +25,7 @@ export class LoginsComponent implements OnInit {
   
   logar(){
     this.usuarioService.buscarUsuarios()
-    .then(resultado => {
+    .then((resultado:any) => {
       
       const find = resultado.list.find(e => e.NICKNAME == this.username && e.PASSWORD == this.password);
 

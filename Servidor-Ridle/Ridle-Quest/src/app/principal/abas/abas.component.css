@@ -25,12 +25,7 @@
 
 .abas {
     background-color: black;
-    height: 125px;
-}
-
-.meio {
-    background-color: white;
-    height: 1000px;
+    height: 145px;
 }
 
 @keyframes NeonCampos {
@@ -40,4 +35,57 @@
     to {
         filter: drop-shadow(0 0 30px #26bd46);
     }
+}
+
+.d-grid {
+    animation: NeonCampos 3s alternate infinite ease-in-out;
+}
+
+.fases {
+    width: 100px;
+    background-color: black;
+    border: solid 1px #26bd46;
+    color: #26bd46;
+}
+
+.conta {
+    width: 100px;
+    background-color: black;
+    border: solid 1px #26bd46;
+    color: #26bd46;
+    margin-right: 100px;
+}
+
+.meio {
+    background-color: white;
+    height: 1250px;
+}
+
+.img-centro {
+    height: 50%;
+    background-image: url('https://userscontent2.emaze.com/images/61644977-0a3d-490f-9bb2-0750827f5881/8250b266b44bb383a50fd58f45dbfe64.gif');
+    background-repeat: no-repeat;
+    background-size: 200%;
+    display: flex;
+    justify-content: center;
+}
+
+.linha {
+    height: 1px;
+    background-color: #26bd46;
+}
+
+.nome-site {
+    font-size: 100px;
+    font-family: sans-serif;
+    color: #088b24;
+    margin-top: 150px;
+    margin-left: 20px;
+    animation: NeonCampos 3s alternate infinite ease-in-out;
+}
+
+.frase {
+    font-size: 35px;
+    font-family: sans-serif;
+    color: #0f802783;
 }
