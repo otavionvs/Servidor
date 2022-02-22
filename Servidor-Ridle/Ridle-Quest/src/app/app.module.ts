@@ -8,18 +8,30 @@ import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AbasComponent } from './principal/abas/abas.component';
+import { Fase1Component } from './enigma1/fase1/fase1.component';
+import { Fase2Component } from './enigma1/fase2/fase2.component'
+import { Fase3Component } from './enigma1/fase3/fase3.component';
+import { Fase4Component } from './enigma1/fase4/fase4.component';
 
 
 const routes: Routes = [
   { path: '', component: LoginsComponent },
-  { path: 'principal', component: AbasComponent }
+  { path: 'principal', component: AbasComponent },
+  { path: 'Fase1', component: Fase1Component},
+  { path: 'Fase2', component: Fase2Component},
+  { path: 'Fase3', component: Fase3Component},
+  { path: 'Fase4', component: Fase4Component}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginsComponent,
-    AbasComponent
+    AbasComponent,
+    Fase1Component,
+    Fase2Component,
+    Fase3Component,
+    Fase4Component
 
   ],
   imports: [

@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
-
 @Component({
-  selector: 'app-fase1',
-  templateUrl: './fase1.component.html',
-  styleUrls: ['./fase1.component.css']
+  selector: 'app-fase2',
+  templateUrl: './fase2.component.html',
+  styleUrls: ['./fase2.component.css']
 })
-export class Fase1Component implements OnInit {
+export class Fase2Component implements OnInit {
 
   constructor(
     private router : Router
@@ -20,12 +19,12 @@ export class Fase1Component implements OnInit {
 
 
   alerta(){
-    alert ('Línguas!');
+    alert ('𝄞 Garota 𝄞');
   }
 
   verificar(){
-    if(this.resposta == "Latim" || this.resposta == "latim"){
-      this.router.navigate(['/Fase2'])
+    if(this.resposta == "Poema" || this.resposta == "poema"){
+      this.router.navigate(['/Fase3'])
     }else{
       alert('Erroooouuuu!!!!')
     }
