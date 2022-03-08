@@ -7,7 +7,7 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background-image: url("https://www.cqcs.com.br/wp-content/uploads/2019/05/ataque-hacker-e1559060933534.jpeg");
+    background-image: url("https://64.media.tumblr.com/e8c568b5831482a114d1fd8303cf69a2/48a36b215e1ddf8d-1a/s640x960/d36d5f293e0e6cadadfaf3cf861205443318c20c.gifv");
     background-repeat: no-repeat;
     background-size: 100%;
 }
@@ -16,15 +16,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 60px;
+    margin-top: 40px;
     margin-left: 550px;
     border: 1px solid black;
-    height: 400px;
-    width: 300px;
-    background-color: rgba(0, 0, 0, 0.726);
+    height: 450px;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.884);
     color: white;
-    -moz-box-shadow: 0px 20px 20px #26bd46;
-    -webkit-box-shadow: 0px 20px 20px #26bd46;
+    -moz-box-shadow: 0px 20px 20px #cadbce;
+    -webkit-box-shadow: 0px 20px 20px #949b95;
 }
 
 .neon {
@@ -32,11 +32,11 @@
     font-weight: 15;
     text-decoration: none;
     display: inline-block;
-    color: #26bd46;
+    color: #000000;
     padding: 5px 15px;
-    border: #26bd46 3px solid;
+    border: #cadbce 3px solid;
     border-radius: 10px;
-    box-shadow: inset 0 0 32px 0 #26bd46, 0 0 32px 0 #26bd46;
+    box-shadow: inset 0 0 32px 0 #828a84, 0 0 32px 0 #4a4e4b;
     text-shadow: 0 0 8px hsl(0 0% 100% / 0.3), 0 0 32px currentColor;
     position: relative;
 }
@@ -49,7 +49,7 @@
     position: absolute;
     top: 120%;
     left: 0;
-    background: #26bd46;
+    background: #cadbce;
     width: 100%;
     height: 100%;
     transform: perspective(64px) rotateX(40deg) scale(1, 0.35);
@@ -68,9 +68,9 @@
     bottom: 0;
     left: 0;
     right: 0;
-    box-shadow: 0 0 128px 32px #26bd46;
+    box-shadow: 0 0 128px 32px #ffffff;
     opacity: 0;
-    background-color: #26bd46;
+    background-color: #cadbce;
     z-index: -1;
     transition: opacity 100ms linear;
 }
@@ -85,30 +85,30 @@
     text-shadow: none;
 }
 
-@keyframes NeonCampos {
+@keyframes NeonCampos2 {
     from {
-        filter: drop-shadow(0 0 0 #11ca39);
+        filter: drop-shadow(0 0 0 #ffffff);
     }
     to {
-        filter: drop-shadow(0 0 30px #26bd46);
+        filter: drop-shadow(0 0 30px #cadbce);
     }
 }
 
 .campos {
-    color: #26bd46;
-    animation: NeonCampos 3s alternate infinite ease-in-out;
+    color: #cadbce;
+    animation: NeonCampos2 3s alternate infinite ease-in-out;
     background-color: rgba(0, 0, 0, 0.007);
 }
 
 .login {
-    color: #26bd46;
+    color: #cadbce;
     font-family: sans-serif;
     font-size: 40px;
 }
 
 .ridle {
     color: rgba(0, 0, 0, 0.521);
-    text-shadow: 0 0 8px rgb(0, 255, 76), 0 0 32px currentColor;
+    text-shadow: 0 0 8px rgb(200, 214, 203), 0 0 32px currentColor;
     font-size: 90px;
 }
 
@@ -116,6 +116,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 70px;
+    margin-top: 25px;
     margin-left: 25px;
 }

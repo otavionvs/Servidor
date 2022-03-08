@@ -29,6 +29,27 @@ export class UsuarioService {
 
       }
 
+      cadastro(nome, email, username, password){
+        return new Promise((resolve, reject) => {
+          fetch('/api/criar_usuario', {
+            method: 'POST',
+            body: JSON.stringify(
+                {
+                  nome: nome, email: email, nickname: username, password: password
+                  
+                }
+            ),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (result) {
+            return result.json();
+        }).then(resolve).catch(reject);
+        
+        });
+    
+          }
+
   buscarUsuarios(){
     return new Promise((resolvido, rejeitado) => {
       fetch('/api/buscar_usuario', {
@@ -41,6 +62,9 @@ export class UsuarioService {
       .catch(rejeitado);
     })
   }
+
+  
+
 }
 
   // Login(Usuario, Senha){

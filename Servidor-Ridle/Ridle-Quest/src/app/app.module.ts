@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { LoginsComponent } from './login/logins/logins.component';
+import { CadastroComponent } from './login/cadastro/cadastro.component';
 
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -16,6 +17,7 @@ import { Fase4Component } from './enigma1/fase4/fase4.component';
 
 const routes: Routes = [
   { path: '', component: LoginsComponent },
+  { path: 'cadastro', component: CadastroComponent },
   { path: 'principal', component: AbasComponent },
   { path: 'Fase1', component: Fase1Component},
   { path: 'Fase2', component: Fase2Component},
@@ -27,6 +29,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     LoginsComponent,
+    CadastroComponent,
     AbasComponent,
     Fase1Component,
     Fase2Component,

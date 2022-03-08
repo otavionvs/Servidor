@@ -46,6 +46,10 @@ export class LoginsComponent implements OnInit {
       
     
   }
+
+  cadastrar(){
+    this.router.navigate(['/cadastro']);
+  }
 }
   
   

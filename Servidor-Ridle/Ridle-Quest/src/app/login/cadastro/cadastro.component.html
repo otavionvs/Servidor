@@ -11,19 +11,22 @@
     <div class="molde">
         <div class="dentro">
             <h1 class="login">
-                Login
+                Cadastro
             </h1>
             <br/>
             <br/>
             <br/>
+            <input placeholder="Nome" [(ngModel)]='nome' class="campos">
+            <br/>
+            <input placeholder="Email" [(ngModel)]='email' class="campos">
             <br/>
             <input placeholder="Username" [(ngModel)]='username' class="campos">
             <br />
             <input placeholder="Password" [(ngModel)]='password' type="password" class="campos">
             <br />
-            <button (click)="logar()" class="neon" style="margin-top: 80px;">Logar</button >
-    <span style="margin-left: 5px;">
-    <button  (click)="cadastrar()" class="neon">Registrar</button>
+            <button (click)="Registrar()" class="neon" style="margin-top: 80px;">Registrar</button >
+  <span style="margin-left: 5px;">
+  <button  (click)="Limpar()" class="neon">Limpar</button>
             </span>
         </div>
     </div>

@@ -1,14 +1,13 @@
-// inserirRota('/buscar_usuario',
-//     function(dados, resposta) {
-//         console.log(dados);
-
-//         resposta({ ok: dados });
-//     });
-
 inserirRota('/criar_usuario',
     function(dados, resposta) {
         console.log(dados);
 
+        if (!dados.nome) {
+            return resposta({ erro: 'É necessario arrumar nome' })
+        }
+        if (!dados.email) {
+            return resposta({ erro: 'É necessario arrumar email' })
+        }
         if (!dados.nickname) {
             return resposta({ erro: 'É necessario arrumar nick' })
         }
@@ -18,9 +17,9 @@ inserirRota('/criar_usuario',
 
 
         database(`INSERT INTO USER(
-         NICKNAME, PASSWORD
+            NOME, EMAIL, NICKNAME, PASSWORD
             )VALUES 
-    ("${dados.nickname}", "${dados.password}")`)
+    ("${dados.nome}","${dados.email}","${dados.nickname}", "${dados.password}")`)
             .then(result => {
                 console.log('Usuario Inserido com Sucesso!');
                 resposta({ message: 'Usuario Inserido com Sucesso!' });
@@ -52,6 +51,46 @@ inserirRota('/login',
                 resposta({ erro: 'Erro ao buscar os usuários' });
             });
     });
+
+
+// inserirRota('/criar_cliente',
+//     function(dados, resposta) {
+//         console.log(dados);
+
+//         if (!dados.nome) {
+//             return resposta({ erro: 'É necessario arrumar nome' })
+//         }
+//         if (!dados.email) {
+//             return resposta({ erro: 'É necessario arrumar email' })
+//         }
+//         if (!dados.usuario_nickname) {
+//             return resposta({ erro: 'É necessario arrumar nick de usu' })
+//         }
+
+
+//         database(`INSERT INTO CLIENTE(
+//             NOME, EMAIL, USUARIO_NICKNAME
+//             )VALUES 
+//     ("${dados.nome}", "${dados.email}", "${dados.usuario_nickname}")`)
+//             .then(result => {
+//                 console.log('Cliente Inserido com Sucesso!');
+//                 resposta({ message: 'Cliente Inserido com Sucesso!' });
+//             }).catch(erro => {
+//                 console.log('Erro ao inserir o Cliente!');
+//                 resposta({ erro: 'Erro ao inserir o Cliente!' });
+//             });
+//     })
+
+// inserirRota('/buscar_cliente',
+//     function(dados, resposta) {
+//         console.log(dados);
+//         database('SELECT * FROM CLIENTE').then(result => {
+//             resposta({ list: result });
+//         }).catch(erro => {
+//             resposta({ erro: "Erro ao buscar os usuários!" });
+//         });
+//     });
+
 
 
 // fetch('/api/buscar_usuario', {
@@ -88,3 +127,11 @@ inserirRota('/login',
     }) */
 
 //select, fetch(pegar lista), proxy
+
+
+// inserirRota('/buscar_usuario',
+//     function(dados, resposta) {
+//         console.log(dados);
+
+//         resposta({ ok: dados });
+//     });
