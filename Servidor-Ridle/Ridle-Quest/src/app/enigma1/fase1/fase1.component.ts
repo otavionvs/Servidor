@@ -16,7 +16,7 @@ export class Fase1Component implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+
   }
   
   resposta = "";
@@ -27,7 +27,7 @@ export class Fase1Component implements OnInit {
     alert ('Línguas!');
   }
 
-
+//{{head}} - aqui é pra por no html
 
   verificar(){
     this.enigam1Service.VerificarFase(this.resposta, this.contador)
