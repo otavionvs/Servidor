@@ -8,8 +8,8 @@ inserirRota('/criar_usuario',
         if (!dados.email) {
             return resposta({ erro: 'É necessario arrumar email' })
         }
-        if (!dados.nickname) {
-            return resposta({ erro: 'É necessario arrumar nick' })
+        if (!dados.username) {
+            return resposta({ erro: 'É necessario arrumar user' })
         }
         if (!dados.password) {
             return resposta({ erro: 'É necessario arrumar password' })
@@ -17,9 +17,9 @@ inserirRota('/criar_usuario',
 
 
         database(`INSERT INTO USER(
-            NOME, EMAIL, NICKNAME, PASSWORD
+            NOME, EMAIL, USERNAME, PASSWORD
             )VALUES 
-    ("${dados.nome}","${dados.email}","${dados.nickname}", "${dados.password}")`)
+    ("${dados.nome}","${dados.email}","${dados.username}", "${dados.password}")`)
             .then(result => {
                 console.log('Usuario Inserido com Sucesso!');
                 resposta({ message: 'Usuario Inserido com Sucesso!' });
@@ -42,8 +42,8 @@ inserirRota('/buscar_usuario',
 inserirRota('/login',
     function(dados, resposta) {
         console.log(dados);
-        database(`SELECT * FROM USER WHERE NICKNAME = "${dados.nickname}"
-     AND PASSWORD = "${dados.password} LIMIT 1"`)
+        database(`SELECT * FROM USER WHERE USERNAME = "${dados.username}"  
+        AND PASSWORD = "${dados.password}" LIMIT 1`)
             .then(result => {
                 console.log('result:', result);
                 resposta({ user: result[0] });
@@ -51,6 +51,7 @@ inserirRota('/login',
                 resposta({ erro: 'Erro ao buscar os usuários' });
             });
     });
+
 
 
 // inserirRota('/criar_cliente',

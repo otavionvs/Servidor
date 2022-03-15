@@ -24,13 +24,11 @@ export class LoginsComponent implements OnInit {
   }
   
   logar(){
-    this.usuarioService.buscarUsuarios()
+    this.usuarioService.login(this.username, this.password)
     .then((resultado:any) => {
       
-      const find = resultado.list.find(e => e.NICKNAME == this.username && e.PASSWORD == this.password);
-
-      if (find) {
-        localStorage.setItem('USER', this.username);
+      if (resultado.user) {
+        //localStorage.setItem('USER', this.username);
         this.router.navigate(['/principal']);
         console.log('Deu 2222');
         
@@ -46,6 +44,7 @@ export class LoginsComponent implements OnInit {
       
     
   }
+
 
   cadastrar(){
     this.router.navigate(['/cadastro']);

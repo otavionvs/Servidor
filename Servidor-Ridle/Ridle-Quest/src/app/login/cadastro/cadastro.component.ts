@@ -23,14 +23,20 @@ export class CadastroComponent implements OnInit {
   }
 
   Registrar(){
-    this.usuarioService.cadastro(this.nome, this.email, this.username, this.password)
-    .then((resultado:any) => {
-      
-      this.router.navigate(['']);
+    if(this.nome != "" && this.email != "" && this.username != "" && this.password != ""){
+      this.usuarioService.cadastro(this.nome, this.email, this.username, this.password)
+      .then((resultado:any) => {
+        
+        this.router.navigate(['']);
+  
+      }).catch(erro => {
+        console.log('Erro ao buscar usuarios', erro)
+      })
 
-    }).catch(erro => {
-      console.log('Erro ao buscar usuarios', erro)
-    })
+    }else{
+      alert("É necessario preencher todos os campos!")
+    }
+    
     
   }
 

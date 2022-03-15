@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { resolve } from 'url';
+import { promise } from 'protractor';
+
 
 @Injectable({
   providedIn: 'root'
@@ -28,14 +30,14 @@ export class UsuarioService {
     });
 
       }
-
+      
       cadastro(nome, email, username, password){
         return new Promise((resolve, reject) => {
           fetch('/api/criar_usuario', {
             method: 'POST',
             body: JSON.stringify(
                 {
-                  nome: nome, email: email, nickname: username, password: password
+                  nome: nome, email: email, username: username, password: password
                   
                 }
             ),
@@ -62,6 +64,10 @@ export class UsuarioService {
       .catch(rejeitado);
     })
   }
+
+
+  
+
 
   
 
