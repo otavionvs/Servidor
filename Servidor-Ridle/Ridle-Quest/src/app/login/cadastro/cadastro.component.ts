@@ -25,7 +25,7 @@ export class CadastroComponent implements OnInit {
   Registrar(){
     if(this.nome != "" && this.email != "" && this.username != "" && this.password != ""){
       this.usuarioService.cadastro(this.nome, this.email, this.username, this.password)
-      .then((resultado:any) => {
+      .then((resultado) => {
         
         this.router.navigate(['']);
   

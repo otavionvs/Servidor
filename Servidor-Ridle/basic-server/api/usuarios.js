@@ -98,7 +98,7 @@ inserirRota('/login',
 //     method: 'POST',
 //     body: JSON.stringify(
 //         {
-//             nome: "Otavio", nickname: "Tavin"
+//             
 //         }
 //     ),
 //     headers: {

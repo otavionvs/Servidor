@@ -10,18 +10,29 @@ import { Enigma1Service } from 'src/app/services/enigma1.service';
 })
 export class Fase1Component implements OnInit {
 
+
+  resposta;
+  contador = 1;
+  teste = "";
+  imagem = "";
+
   constructor(
     private enigam1Service: Enigma1Service,
     private router : Router
   ) { }
 
   ngOnInit() {
+    this.enigam1Service.buscarFase()
+    .then((resultado:any) => {
+      console.log(resultado);
+      this.teste = resultado.list[0].HEAD;
+      this.imagem = resultado.list[0].IMG;
+      
 
+    }).catch(erro => {
+      console.log('Erro ao buscar usuarios', erro)
+    })
   }
-  
-  resposta = "";
-  contador = 1;
-
 
   alerta(){
     alert ('Línguas!');

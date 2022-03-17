@@ -4,7 +4,7 @@ import { AbasComponent } from './abas/abas.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
   declarations: [AbasComponent]
 })

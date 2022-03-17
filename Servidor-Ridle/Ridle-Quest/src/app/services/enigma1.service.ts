@@ -43,6 +43,28 @@ export class Enigma1Service {
         })
       }
 
+      // MontarFase(head, imagem, dica, fase, id){
+      //   return new Promise((resolve, reject) => {
+      //     fetch('/api/buscar_fase', {
+      //       method: 'POST',
+      //       body: JSON.stringify(
+      //           {
+      //             head:head, imagem: imagem, dica: dica,
+      //             fase: fase, id: id
+                  
+      //           }
+      //       ),
+      //       headers: {
+      //           "Content-Type": "application/json"
+      //       }
+      //   }).then(function (result) {
+      //       return result.json();
+      //   }).then(resolve).catch(reject);
+        
+      //   });
+      
+      //     }
+
 }
 
 
