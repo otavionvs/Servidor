@@ -42,6 +42,17 @@ inserirRota('/buscar_fase',
         });
     });
 
+
+inserirRota('/buscar_faseado',
+    function(dados, resposta) {
+        console.log(dados);
+        database(`SELECT * FROM ENIGMAORIGINAL WHERE ID = "${dados.id}" LIMIT 1`).then(result => {
+            resposta({ fases: result[0] });
+        }).catch(erro => {
+            resposta({ erro: "Erro ao buscar as fases!" });
+        });
+    });
+
 inserirRota('/fase01',
     function(dados, resposta) {
         console.log(dados);

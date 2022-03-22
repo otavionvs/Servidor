@@ -15,6 +15,7 @@ export class Fase1Component implements OnInit {
   contador = 1;
   teste = "";
   imagem = "";
+  alert = "";
 
   constructor(
     private enigam1Service: Enigma1Service,
@@ -22,11 +23,12 @@ export class Fase1Component implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.enigam1Service.buscarFase()
+    this.enigam1Service.buscarFase(this.contador)
     .then((resultado:any) => {
       console.log(resultado);
-      this.teste = resultado.list[0].HEAD;
-      this.imagem = resultado.list[0].IMG;
+      this.teste = resultado.fases.HEAD;
+      this.imagem = resultado.fases.IMG;
+      this.alert = resultado.fases.DICA;
       
 
     }).catch(erro => {
@@ -35,7 +37,7 @@ export class Fase1Component implements OnInit {
   }
 
   alerta(){
-    alert ('Línguas!');
+    alert (this.alert);
   }
 
 //{{head}} - aqui é pra por no html
@@ -44,10 +46,11 @@ export class Fase1Component implements OnInit {
     this.enigam1Service.VerificarFase(this.resposta, this.contador)
     .then((resultado:any) => {
       
-      console.log(resultado.fase)
+      console.log(resultado.fases.FASE)
       if (resultado.fases) {
-        //localStorage.setItem('USER', this.username);
-        this.router.navigate(['/Fase2'])
+        this.contador = this.contador + 1;
+        this.ngOnInit();
+        
         console.log('Deu 2222');
         
       } else {

@@ -30,10 +30,16 @@ export class Enigma1Service {
   
       }
 
-      buscarFase(){
+      buscarFase(id){
         return new Promise((resolvido, rejeitado) => {
-          fetch('/api/buscar_fase', {
+          fetch('/api/buscar_faseado', {
             method: 'POST',
+            body: JSON.stringify(
+              {
+                 id: id
+                
+              }
+          ),
             headers: {
               'Content-Type': 'application/json'
             }
