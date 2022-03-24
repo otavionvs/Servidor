@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { Enigma1Service } from 'src/app/services/enigma1.service';
+import { ClienteService } from 'src/app/services/cliente.service';
 
 
 @Component({
@@ -11,19 +12,20 @@ import { Enigma1Service } from 'src/app/services/enigma1.service';
 export class Fase1Component implements OnInit {
 
 
-  resposta;
+  resposta = "";
   contador = 1;
   teste = "";
   imagem = "";
   alert = "";
 
   constructor(
-    private enigam1Service: Enigma1Service,
+    private enigma1Service: Enigma1Service,
+    private clienteService : ClienteService,
     private router : Router
   ) { }
 
   ngOnInit() {
-    this.enigam1Service.buscarFase(this.contador)
+    this.enigma1Service.buscarFase(this.contador)
     .then((resultado:any) => {
       console.log(resultado);
       this.teste = resultado.fases.HEAD;
@@ -43,14 +45,16 @@ export class Fase1Component implements OnInit {
 //{{head}} - aqui é pra por no html
 
   verificar(){
-    this.enigam1Service.VerificarFase(this.resposta, this.contador)
+    this.enigma1Service.VerificarFase(this.resposta, this.contador)
     .then((resultado:any) => {
       
       console.log(resultado.fases.FASE)
       if (resultado.fases) {
+        this.resposta = "";
         this.contador = this.contador + 1;
         this.ngOnInit();
         
+        trocaFase();
         console.log('Deu 2222');
         
       } else {
@@ -63,6 +67,19 @@ export class Fase1Component implements OnInit {
     })
 
 
+  }
+
+  trocaFase(){
+    this.clienteService.AtualizarEnigmaOlimpo(2, 1)
+    .then((resultado:any) => {
+      console.log(resultado);
+      
+      
+
+    }).catch(erro => {
+      console.log('Erro ao buscar usuarios', erro)
+    })
+  }
   }
 
 }
