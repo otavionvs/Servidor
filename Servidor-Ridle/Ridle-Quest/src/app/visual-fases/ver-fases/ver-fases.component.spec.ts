@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Fase4Component } from './fase4.component';
+import { VerFasesComponent } from './ver-fases.component';
 
-describe('Fase4Component', () => {
-  let component: Fase4Component;
-  let fixture: ComponentFixture<Fase4Component>;
+describe('VerFasesComponent', () => {
+  let component: VerFasesComponent;
+  let fixture: ComponentFixture<VerFasesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Fase4Component ]
+      declarations: [ VerFasesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Fase4Component);
+    fixture = TestBed.createComponent(VerFasesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

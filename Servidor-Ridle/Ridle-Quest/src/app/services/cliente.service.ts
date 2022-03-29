@@ -30,4 +30,23 @@ export class ClienteService {
   
       }
 
+      buscandoCliente(user){
+        return new Promise((resolvido, rejeitado) => {
+          fetch('/api/buscando_cliente', {
+            method: 'POST',
+            body: JSON.stringify(
+              {
+                 user: user
+                
+              }
+          ),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          }).then(resultado => resultado.json())
+          .then(resolvido)
+          .catch(rejeitado);
+        })
+      }
+
 }

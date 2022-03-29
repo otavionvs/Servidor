@@ -16,6 +16,8 @@ import { Fase1Component } from './enigma1/fase1/fase1.component';
 import { Enigma1Module } from './enigma1/enigma1.module';
 import { PrincipalModule } from './principal/principal.module';
 import { LoginModule } from './login/login.module';
+import { VisualFasesModule } from './visual-fases/visual-fases.module';
+import { VerFasesComponent } from './visual-fases/ver-fases/ver-fases.component';
 
 
 const routes: Routes = [
@@ -23,6 +25,7 @@ const routes: Routes = [
   { path: 'cadastro', component: CadastroComponent },
   { path: 'principal', component: AbasComponent },
   { path: 'Fase1', component: Fase1Component},
+  { path: 'Fases', component: VerFasesComponent},
   // { path: 'Fase2', component: Fase2Component},
   // { path: 'Fase3', component: Fase3Component},
   // { path: 'Fase4', component: Fase4Component}
@@ -38,7 +41,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     LoginModule,
     Enigma1Module,
-    PrincipalModule
+    PrincipalModule,
+    VisualFasesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -43,9 +43,24 @@ inserirRota('/buscar_cliente',
 inserirRota('/verificar_cliente1',
     function(dados, resposta) {
         console.log(dados);
-        database(`UPDATE CLIENTE SET ENIGMAORIGINAL = "${dados.troca}" WHERE ID = "${dados.id}" LIMIT 1`).then(result => {
-            resposta({ clientizinho: result[0] });
-        }).catch(erro => {
-            resposta({ erro: "Erro ao buscar as fases!" });
-        });
+        database(`UPDATE CLIENTE SET ENIGMAORIGINAL = "${dados.troca}" WHERE ID = "${dados.id}"`)
+            .then(result => {
+                console.log('Update Cliente En01 Inserida com Sucesso!');
+                resposta({ message: 'Update Cliente En01 Inserida com Sucesso!' });
+            }).catch(erro => {
+                console.log('Erro ao inserir o Update Cliente En01!');
+                resposta({ erro: erro });
+            });
+    });
+
+inserirRota('/buscando_cliente',
+    function(dados, resposta) {
+        console.log(dados);
+        database(`SELECT * FROM CLIENTE WHERE USER = "${dados.user}" LIMIT 1`)
+            .then(result => {
+                console.log('result:', result);
+                resposta({ cliente: result[0] });
+            }).catch(erro => {
+                resposta({ erro: 'Erro ao buscar os usuários' });
+            });
     });
