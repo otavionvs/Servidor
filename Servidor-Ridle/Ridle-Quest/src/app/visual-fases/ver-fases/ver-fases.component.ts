@@ -11,7 +11,7 @@ import { ClienteService } from 'src/app/services/cliente.service';
 export class VerFasesComponent implements OnInit {
 
   resposta = "";
-
+  users = [];
   constructor(
     private enigma1Service: Enigma1Service,
     private clienteService : ClienteService,
@@ -19,7 +19,7 @@ export class VerFasesComponent implements OnInit {
   ) { 
     
   }
-  users = [];
+  
   
 
   ngOnInit() {
@@ -30,7 +30,7 @@ export class VerFasesComponent implements OnInit {
       this.enigma1Service.buscarFase(i)
       .then((resultado:any) => {
         console.log(resultado);
-        this.users = resultado.fases.FASE;
+        this.users[i-1] = resultado.fases.FASE;
         
   
       }).catch(erro => {
@@ -43,9 +43,8 @@ export class VerFasesComponent implements OnInit {
   })
   }
 
-  MostrarFase(){
-
-  }
+  
+  
 
 
 

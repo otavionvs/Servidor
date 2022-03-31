@@ -44,15 +44,14 @@
 
                     </div>
                     <div class="coluna" style="border-left: 1px solid #11ca39; border-right: 1px solid #11ca39;">
-                        <h3>{{this.resposta}}</h3>
+                        <div *ngFor="let user of users">
+                            <div>{{user}}</div>
+                        </div>
                     </div>
                     <div class="coluna">
 
                     </div>
 
-                    <!-- <li *ngFor="let user of users; index as i; first as isFirst">
-                        {{i}}/{{users.length}}. {{user}} <span *ngIf="isFirst">default</span>
-                    </li> -->
                 </div>
             </div>
 
