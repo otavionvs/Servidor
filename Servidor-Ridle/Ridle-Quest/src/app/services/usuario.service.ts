@@ -37,7 +37,7 @@ export class UsuarioService {
             method: 'POST',
             body: JSON.stringify(
                 {
-                  nome: nome, email: email, username: username, password: password
+                  nome: nome, email: email, username: username, password: password, adm: 2
                   
                 }
             ),

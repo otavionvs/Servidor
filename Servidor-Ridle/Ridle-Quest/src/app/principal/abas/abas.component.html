@@ -5,15 +5,18 @@
 <header style="height: 15%;">
     <div class="abas">
         <br />
-        <div class="logo">
+        <div class="logo" (click)="home()">
             <h1 class="DentroLogo">
                 RQ
             </h1>
 
         </div>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="fases"> Fases </button>
-            <button class="conta"> Minha conta </button>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="this.contador == 0">
+            <button class="fases" (click)="telafases()" style="margin-right: 100px;"> Fases </button>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="this.contador == 1">
+            <button class="fases" (click)="telafases()"> Fases </button>
+            <button class="fases" style="margin-right: 100px;"> Criar Fase </button>
         </div>
         <br />
     </div>

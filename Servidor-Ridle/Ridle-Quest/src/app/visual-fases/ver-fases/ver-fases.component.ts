@@ -23,6 +23,7 @@ export class VerFasesComponent implements OnInit {
   
 
   ngOnInit() {
+    localStorage.removeItem('Visualizer');
     this.clienteService.buscandoCliente(localStorage.getItem('USER'))
     .then((resultado2:any) => {
       console.log(resultado2);
@@ -30,9 +31,7 @@ export class VerFasesComponent implements OnInit {
       this.enigma1Service.buscarFase(i)
       .then((resultado:any) => {
         console.log(resultado);
-        this.users[i-1] = resultado.fases.FASE;
-        
-  
+        this.users[i-1] = resultado.fases.ID;
       }).catch(erro => {
         console.log('Erro ao buscar usuarios', erro)
       })
@@ -43,8 +42,18 @@ export class VerFasesComponent implements OnInit {
   })
   }
 
+  voltar(){
+    this.router.navigate(['principal'])
+  }
   
-  
+  fases1(fase){
+    this.router.navigate(['Fase1']);
+    localStorage.setItem("Visualizer", fase);
+  }
+
+  home(){
+    this.router.navigate(['principal']);
+  }
 
 
 

@@ -14,12 +14,15 @@ inserirRota('/criar_usuario',
         if (!dados.password) {
             return resposta({ erro: 'É necessario arrumar password' })
         }
+        if (!dados.adm) {
+            return resposta({ erro: 'É necessario arrumar password' })
+        }
 
 
         database(`INSERT INTO USER(
-            NOME, EMAIL, USERNAME, PASSWORD
+            NOME, EMAIL, USERNAME, PASSWORD, ADM
             )VALUES 
-    ("${dados.nome}","${dados.email}","${dados.username}", "${dados.password}")`)
+    ("${dados.nome}","${dados.email}","${dados.username}", "${dados.password}", "${dados.adm}")`)
             .then(result => {
                 console.log('Usuario Inserido com Sucesso!');
                 resposta({ message: 'Usuario Inserido com Sucesso!' });

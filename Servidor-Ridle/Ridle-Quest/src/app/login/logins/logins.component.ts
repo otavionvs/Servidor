@@ -20,6 +20,8 @@ export class LoginsComponent implements OnInit {
 
   ngOnInit() {
    localStorage.removeItem('USER');
+   localStorage.removeItem('Visualizer');
+   localStorage.removeItem('ADM');
   }
   
   logar(){
@@ -27,6 +29,9 @@ export class LoginsComponent implements OnInit {
     .then((resultado:any) => {
       
       if (resultado.user) {
+        if(resultado.user.ADM == 1){
+          localStorage.setItem('ADM', this.username);
+        }
         localStorage.setItem('USER', this.username);
         this.router.navigate(['/principal']);
         console.log('Deu 2222');

@@ -41,14 +41,7 @@
     animation: NeonCampos 3s alternate infinite ease-in-out;
 }
 
-.fases {
-    width: 100px;
-    background-color: black;
-    border: solid 1px #26bd46;
-    color: #26bd46;
-}
-
-.conta {
+.voltar {
     width: 100px;
     background-color: black;
     border: solid 1px #26bd46;
@@ -95,6 +88,12 @@
 .coluna {
     height: 400px;
     width: 300px;
+}
+
+.fases {
     display: flex;
     justify-content: center;
+    border: #11ca39 1px solid;
+    font-size: 30px;
+    margin-top: 10px;
 }

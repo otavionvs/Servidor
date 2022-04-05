@@ -9,13 +9,13 @@ export class ClienteService {
 
   constructor() { }
 
-  AtualizarEnigmaOlimpo(troca, id){
+  AtualizarEnigmaOlimpo(troca, user){
     return new Promise((resolve, reject) => {
       fetch('/api/verificar_cliente1', {
         method: 'POST',
         body: JSON.stringify(
             {
-              troca: troca, id: id
+              troca: troca, user: user
               
             }
         ),
@@ -48,5 +48,26 @@ export class ClienteService {
           .catch(rejeitado);
         })
       }
+
+      cadastro(user){
+        return new Promise((resolve, reject) => {
+          fetch('/api/criar_cliente', {
+            method: 'POST',
+            body: JSON.stringify(
+                {
+                  user: user, enigmaOriginal: 1, enigmaOlimpiano: 1, enigmaCerimonial: 1
+                  
+                }
+            ),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (result) {
+            return result.json();
+        }).then(resolve).catch(reject);
+        
+        });
+    
+          }
 
 }

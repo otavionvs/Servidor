@@ -13,7 +13,7 @@ export class Fase1Component implements OnInit {
 
 
   resposta = "";
-  contador = 1;
+  contador = 0;
   teste = "";
   imagem = "";
   alert = "";
@@ -26,16 +26,19 @@ export class Fase1Component implements OnInit {
 
   ngOnInit() {
     this.clienteService.buscandoCliente(localStorage.getItem('USER'))
+    
     .then((resultado2:any) => {
       console.log(resultado2);
-
+      if(localStorage.getItem('Visualizer')){
+        resultado2.cliente.ENIGMAORIGINAL = localStorage.getItem('Visualizer');
+      }
     this.enigma1Service.buscarFase(resultado2.cliente.ENIGMAORIGINAL)
     .then((resultado:any) => {
       console.log(resultado);
       this.teste = resultado.fases.HEAD;
       this.imagem = resultado.fases.IMG;
       this.alert = resultado.fases.DICA;
-      
+      this.contador = resultado.fases.ID;
 
     }).catch(erro => {
       console.log('Erro ao buscar usuarios', erro)
@@ -58,9 +61,13 @@ export class Fase1Component implements OnInit {
       
       console.log(resultado.fases.FASE)
       if (resultado.fases) {
-        this.resposta = "";
-        this.trocaFase();
-        this.ngOnInit();
+        if(localStorage.getItem('Visualizer')){
+          this.router.navigate(['Fases']);
+        }else{
+          this.resposta = "";
+          this.trocaFase();
+          this.ngOnInit();
+        }
         
         
         console.log('Deu 2222');
@@ -78,7 +85,7 @@ export class Fase1Component implements OnInit {
   }
 
   trocaFase(){
-    this.clienteService.AtualizarEnigmaOlimpo(2, 1)
+    this.clienteService.AtualizarEnigmaOlimpo(this.contador + 1, localStorage.getItem('USER'))
     .then((resultado:any) => {
       console.log(resultado);
 

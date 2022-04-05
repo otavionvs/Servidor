@@ -43,7 +43,7 @@ inserirRota('/buscar_cliente',
 inserirRota('/verificar_cliente1',
     function(dados, resposta) {
         console.log(dados);
-        database(`UPDATE CLIENTE SET ENIGMAORIGINAL = "${dados.troca}" WHERE ID = "${dados.id}"`)
+        database(`UPDATE CLIENTE SET ENIGMAORIGINAL = "${dados.troca}" WHERE USER = "${dados.user}"`)
             .then(result => {
                 console.log('Update Cliente En01 Inserida com Sucesso!');
                 resposta({ message: 'Update Cliente En01 Inserida com Sucesso!' });

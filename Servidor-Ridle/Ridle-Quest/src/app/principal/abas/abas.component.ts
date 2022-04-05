@@ -12,10 +12,22 @@ export class AbasComponent implements OnInit {
     private router : Router
   ) { }
 
+  contador = 0;
+
   ngOnInit() {
+    localStorage.removeItem('Visualizer');
+    if(localStorage.getItem('ADM')){
+      this.contador = 1;
+    }
   }
 
   fase(){
     this.router.navigate(['Fase1'])
+  }
+  telafases(){
+    this.router.navigate(['Fases'])
+  }
+  home(){
+    this.router.navigate(['principal']);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
+import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -16,18 +17,27 @@ export class CadastroComponent implements OnInit {
 
   constructor(
     private usuarioService: UsuarioService,
+    private clienteService: ClienteService,
     private router: Router
   ) { }
 
   ngOnInit() {
+    localStorage.removeItem('Visualizer');
   }
 
   Registrar(){
     if(this.nome != "" && this.email != "" && this.username != "" && this.password != ""){
       this.usuarioService.cadastro(this.nome, this.email, this.username, this.password)
       .then((resultado) => {
-        
+
         this.router.navigate(['']);
+  
+      }).catch(erro => {
+        console.log('Erro ao buscar usuarios', erro)
+      })
+
+      this.clienteService.cadastro(this.username)
+      .then((resultado) => {
   
       }).catch(erro => {
         console.log('Erro ao buscar usuarios', erro)
