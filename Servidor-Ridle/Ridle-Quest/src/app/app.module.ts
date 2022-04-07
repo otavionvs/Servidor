@@ -10,14 +10,13 @@ import { CommonModule } from '@angular/common';
 
 import { AbasComponent } from './principal/abas/abas.component';
 import { Fase1Component } from './enigma1/fase1/fase1.component';
-// import { Fase2Component } from './enigma1/fase2/fase2.component'
-// import { Fase3Component } from './enigma1/fase3/fase3.component';
-// import { Fase4Component } from './enigma1/fase4/fase4.component';
 import { Enigma1Module } from './enigma1/enigma1.module';
 import { PrincipalModule } from './principal/principal.module';
 import { LoginModule } from './login/login.module';
 import { VisualFasesModule } from './visual-fases/visual-fases.module';
 import { VerFasesComponent } from './visual-fases/ver-fases/ver-fases.component';
+import { CriarComponent } from './gerar-fases/criar/criar.component';
+import { GerarFasesModule } from './gerar-fases/gerar-fases.module';
 
 
 const routes: Routes = [
@@ -26,9 +25,8 @@ const routes: Routes = [
   { path: 'principal', component: AbasComponent },
   { path: 'Fase1', component: Fase1Component},
   { path: 'Fases', component: VerFasesComponent},
-  // { path: 'Fase2', component: Fase2Component},
-  // { path: 'Fase3', component: Fase3Component},
-  // { path: 'Fase4', component: Fase4Component}
+  { path: 'CriarFases', component: CriarComponent},
+  
 ];
 
 @NgModule({
@@ -42,7 +40,8 @@ const routes: Routes = [
     LoginModule,
     Enigma1Module,
     PrincipalModule,
-    VisualFasesModule
+    VisualFasesModule,
+    GerarFasesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

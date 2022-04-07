@@ -30,4 +30,8 @@ export class AbasComponent implements OnInit {
   home(){
     this.router.navigate(['principal']);
   }
+  logout(){
+    this.router.navigate(['']);
+  }
+  
 }

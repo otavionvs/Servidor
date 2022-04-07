@@ -11,12 +11,10 @@
             </h1>
 
         </div>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="this.contador == 0">
-            <button class="fases" (click)="telafases()" style="margin-right: 100px;"> Fases </button>
-        </div>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="this.contador == 1">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button class="fases" (click)="telafases()"> Fases </button>
-            <button class="fases" style="margin-right: 100px;"> Criar Fase </button>
+            <button class="fases" (click)="criarFases()" *ngIf="this.contador == 1"> Criar Fase </button>
+            <button class="fases" (click)="logout()" style="margin-right: 100px;"> Logout </button>
         </div>
         <br />
     </div>
