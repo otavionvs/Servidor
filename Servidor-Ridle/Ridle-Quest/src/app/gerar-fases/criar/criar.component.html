@@ -1,3 +1,65 @@
-<p>
-  criar works!
-</p>
+<head>
+    <title>RidleQuest</title>
+</head>
+
+<header style="height: 15%;">
+    <div class="abas">
+        <br />
+        <div class="logo" (click)="home()">
+            <h1 class="DentroLogo">
+                RQ
+            </h1>
+
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="voltar" (click)="voltar()"> Voltar </button>
+
+        </div>
+        <br />
+    </div>
+</header>
+
+<main class="meio">
+    <div class="linha"></div>
+    <div class="Escopo">
+        <div style="display: flex; justify-content: center;">
+            <h2>Criar Fase</h2>
+        </div>
+        <div style="margin-bottom: 10px;"></div>
+        <div style="display: flex; justify-content: center;">
+            <div class="enigma">
+                <div class="nomesEn">
+                    <div class="box">
+                        <select>
+                      <option value="contador = 1">Original</option>
+                      <option>Olimpiano</option>
+                      <option>Cerimonial</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="colunas">
+                    <div class="coluna">
+                        <div style="margin-top: 30px;">
+                            <input placeholder="Fase" class="inputFase">
+                        </div>
+                        <div>
+                            <input placeholder="Head" class="inputFase">
+                        </div>
+                        <div>
+                            <input placeholder="Imagem" class="inputFase">
+                        </div>
+                        <div>
+                            <input placeholder="Dica" class="inputFase">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="nav justify-content-end" style="margin-top: 40px; margin-right: 20px; column-gap: 10px;">
+                    <button class="butoes">Criar</button>
+                    <button class="butoes">Limpar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>

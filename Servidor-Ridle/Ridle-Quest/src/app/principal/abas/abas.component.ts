@@ -33,5 +33,8 @@ export class AbasComponent implements OnInit {
   logout(){
     this.router.navigate(['']);
   }
+  criarFases(){
+    this.router.navigate(['CriarFases']);
+  }
   
 }

@@ -1,0 +1,121 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.logo {
+    border: #26bd46 1px solid;
+    border-radius: 3600px;
+    width: 85px;
+    height: 85px;
+    margin-top: 0px;
+    margin-left: 70px;
+    animation: NeonCampos 3s alternate infinite ease-in-out;
+    background-color: rgba(0, 0, 0, 0.007);
+}
+
+.DentroLogo {
+    font-size: 45px;
+    margin-left: 10px;
+    margin-top: 10px;
+    color: #26bd46;
+    animation: NeonCampos 3s alternate infinite ease-in-out;
+    background-color: rgba(0, 0, 0, 0.007);
+}
+
+.abas {
+    background-color: black;
+    height: 145px;
+}
+
+@keyframes NeonCampos {
+    from {
+        filter: drop-shadow(0 0 0 #11ca39);
+    }
+    to {
+        filter: drop-shadow(0 0 30px #26bd46);
+    }
+}
+
+.d-grid {
+    animation: NeonCampos 3s alternate infinite ease-in-out;
+}
+
+.voltar {
+    width: 100px;
+    background-color: black;
+    border: solid 1px #26bd46;
+    color: #26bd46;
+    margin-right: 100px;
+}
+
+.linha {
+    height: 1px;
+    background-color: #26bd46;
+}
+
+.Escopo {
+    font-size: 45px;
+    margin-left: 10px;
+    margin-top: 10px;
+    color: #26bd46;
+    animation: NeonCampos 3s alternate infinite ease-in-out;
+    background-color: rgba(0, 0, 0, 0.007);
+}
+
+.enigma {
+    height: 500px;
+    width: 600px;
+    border: #11ca39 1px solid;
+}
+
+.nomesEn {
+    height: 100px;
+    width: 600px;
+    border-bottom: #11ca39 solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 180px;
+}
+
+.colunas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fases {
+    display: flex;
+    justify-content: center;
+    border: #11ca39 1px solid;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.box select {
+    background-color: #000000;
+    color: white;
+    padding: 12px;
+    width: 250px;
+    border: none;
+    font-size: 20px;
+    outline: none;
+}
+
+.inputFase {
+    height: 30px;
+    width: 250px;
+    background-color: #000000;
+    color: #11ca39;
+    font-size: 30px;
+}
+
+.butoes {
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+    background-color: #000000;
+    color: #11ca39;
+    border: 1px solid;
+}

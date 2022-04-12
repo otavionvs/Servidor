@@ -12,7 +12,17 @@ export class CriarComponent implements OnInit {
     private router: Router
   ) { }
 
+  contador = 0;
+
   ngOnInit() {
+  }
+  
+  voltar(){
+    this.router.navigate(['principal'])
+  }
+
+  home(){
+    this.router.navigate(['principal']);
   }
 
 }

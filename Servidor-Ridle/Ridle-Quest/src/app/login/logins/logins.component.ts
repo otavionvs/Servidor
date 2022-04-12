@@ -20,6 +20,7 @@ export class LoginsComponent implements OnInit {
 
   ngOnInit() {
    localStorage.removeItem('USER');
+   localStorage.removeItem('PASSWORD');
    localStorage.removeItem('Visualizer');
    localStorage.removeItem('ADM');
   }
@@ -33,6 +34,7 @@ export class LoginsComponent implements OnInit {
           localStorage.setItem('ADM', this.username);
         }
         localStorage.setItem('USER', this.username);
+        localStorage.setItem('PASSWORD', this.password)
         this.router.navigate(['/principal']);
         console.log('Deu 2222');
         
