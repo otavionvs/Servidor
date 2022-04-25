@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
+import { ClienteService } from 'src/app/services/cliente.service';
 import {
   AuthService,
   GoogleLoginProvider
@@ -20,7 +21,8 @@ export class LoginsComponent implements OnInit {
   constructor(
     private usuarioService: UsuarioService,
     private router: Router,
-    private socialAuthService: AuthService
+    private socialAuthService: AuthService,
+    private clienteService: ClienteService
   ) { }
 
   ngOnInit() {
@@ -69,12 +71,42 @@ export class LoginsComponent implements OnInit {
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
         console.log(socialPlatform+" sign in data : " , userData);
-        // Now sign-in with userData
-        // ...
+        this.usuarioService.verificarGoogle(userData.name)
+      .then((resultado) => {
+
+        if(!resultado){
+          this.usuarioService.cadastro(userData.name, userData.email, userData.name, userData.id)
+      .then((resultado) => {
+        localStorage.setItem('USER', userData.name);
+        localStorage.setItem('PASSWORD', userData.id)
+        this.router.navigate(['/principal']);
+  
+      }).catch(erro => {
+        console.log('Erro ao buscar usuarios', erro)
+      })
+
+
+      this.clienteService.cadastro(userData.name)
+      .then((resultado) => {
+  
+      }).catch(erro => {
+        console.log('Erro ao buscar usuarios', erro)
+      })
+        }else{
+        localStorage.setItem('USER', userData.name);
+        localStorage.setItem('PASSWORD', userData.id)
+        this.router.navigate(['/principal']);
+        }
+
+      }).catch(erro => {
+        console.log('Erro ao buscar usuarios', erro)
+      })
             
       }
     );
   }
+
+  
   
 }
 

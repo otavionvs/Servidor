@@ -65,6 +65,25 @@ export class UsuarioService {
     })
   }
 
+  verificarGoogle(username){
+    return new Promise((resolve, reject) => {
+      fetch('/api/verificarGoogle', {
+        method: 'POST',
+        body: JSON.stringify(
+            {
+              username: username
+              
+            }
+        ),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (result) {
+        return result.json();
+    }).then(resolve).catch(reject);
+    
+    })
+  }
 
   
 

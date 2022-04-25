@@ -55,6 +55,18 @@ inserirRota('/login',
             });
     });
 
+inserirRota('/verificarGoogle',
+    function(dados, resposta) {
+        console.log(dados);
+        database(`SELECT * FROM USER WHERE USERNAME = "${dados.username}" LIMIT 1`)
+            .then(result => {
+                console.log('result:', result);
+                resposta({ user: result[0] });
+            }).catch(erro => {
+                resposta({ erro: 'Erro ao buscar os usuários' });
+            });
+    });
+
 
 
 // inserirRota('/criar_cliente',
