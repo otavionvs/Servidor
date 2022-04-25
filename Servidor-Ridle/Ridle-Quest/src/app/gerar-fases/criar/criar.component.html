@@ -22,41 +22,72 @@
 <main class="meio">
     <div class="linha"></div>
     <div class="Escopo">
-        <div style="display: flex; justify-content: center;">
+        <div style="display: flex; justify-content: center; column-gap: 200px;">
+
             <h2>Criar Fase</h2>
+            <h2 style="margin-left: 150px;">Remover Fase</h2>
+
         </div>
-        <div style="margin-bottom: 10px;"></div>
-        <div style="display: flex; justify-content: center;">
+        <div style="display: flex; justify-content: center; align-items: center; column-gap: 30px;">
             <div class="enigma">
                 <div class="nomesEn">
                     <div class="box">
-                        <select>
-                      <option value="contador = 1">Original</option>
-                      <option>Olimpiano</option>
-                      <option>Cerimonial</option>
+                        <select [(ngModel)]="contador">
+                      <option value="1">Original</option>
+                      <option value="2">Olimpiano</option>
+                      <option value="3">Cerimonial</option>
                     </select>
                     </div>
                 </div>
                 <div class="colunas">
                     <div class="coluna">
                         <div style="margin-top: 30px;">
-                            <input placeholder="Fase" class="inputFase">
+                            <input placeholder="Fase" class="inputFase" [(ngModel)]="fase">
                         </div>
                         <div>
-                            <input placeholder="Head" class="inputFase">
+                            <input placeholder="Head" class="inputFase" [(ngModel)]="head">
                         </div>
                         <div>
-                            <input placeholder="Imagem" class="inputFase">
+                            <input placeholder="Imagem" class="inputFase" [(ngModel)]="imagem">
                         </div>
                         <div>
-                            <input placeholder="Dica" class="inputFase">
+                            <input placeholder="Dica" class="inputFase" [(ngModel)]="dica">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="nav justify-content-end" style="margin-top: 10px; margin-right: 20px; column-gap: 10px;">
+                    <button class="butoes" (click)="criar(contador)">Criar</button>
+                    <button class="butoes" (click)="limpar()">Limpar</button>
+                </div>
+            </div>
+
+
+            <div class="remover">
+                <div class="removerEn">
+                    <div class="box">
+                        <select [(ngModel)]="contador2">
+                      <option value="1">Original</option>
+                      <option value="2">Olimpiano</option>
+                      <option value="3">Cerimonial</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="colunas">
+                    <div class="coluna">
+                        <div style="margin-top: 30px;">
+                            <input placeholder="Fase" class="inputFase" [(ngModel)]="fase1">
+                        </div>
+                        <h4>OU</h4>
+                        <div>
+                            <input placeholder="Level" class="inputFase" [(ngModel)]="id">
                         </div>
                     </div>
 
                 </div>
                 <div class="nav justify-content-end" style="margin-top: 40px; margin-right: 20px; column-gap: 10px;">
-                    <button class="butoes">Criar</button>
-                    <button class="butoes">Limpar</button>
+                    <button class="butoes" (click)="remover(contador2)">Remover</button>
+                    <button class="butoes" (click)="limpar()">Limpar</button>
                 </div>
             </div>
 

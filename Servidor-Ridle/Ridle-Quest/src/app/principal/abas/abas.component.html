@@ -31,20 +31,40 @@
             </div>
         </div>
     </div>
+    <div class="escolha">
+        Escolha um dos Jogos
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB0UlEQVRogdXau0oDQRTG8X8sfREFo00sxBuoeO/UvKSolZWF4JPYKVFIYbyLrEX2wJBs3OzOOTOzH0wTlpnz27MTNkPALsvAJXAPPAMXwILheiY5A76AbGS8AlsR66qUE+CbcYSMN2AnWnVTpgzRCMwx8Ek5ImnMEdUQSWLqIpLCHOKHSAKjhYiKOQA+PAuPjrFCBMVYI4Jg9gMhTDE+nVgF1j0wau9mex6IzJknamd8ERoQb8wu8O5ZgBakNkYLoQmpjNlk+ANIY2FtyNQYbYQFpBSzAQyUF7SCTMRYISwhY5gl9B+nUJAsr70NcG24SAhIBly18vbMYpeWA7FKf8Z4gVD5nQHuYlehkFsYHm0WnQo2ZY+8AHOySBf48ZhsLb8hvQqQHtCh/it+xoTXfB9MJ5+jXYApgvTya8lvgBpCcsp0R56j4wlYzOeYBx7+gYxe+1gTsT0JYYVxIcEQFhhJcISk7p5xn/+2M5/7WdGXgteeKItGZ9wE7YQVJipCC5MEQuKzZ4LvibLU7UwSnQiNCYKwxgRFSLQxURASLUxUhMQXkwRCUheTFEJSFZMkQjItJmmEpAzTCISkSzFmQIP+5iRZAW4YdqAPnOOcdmjnDyRWpZRdY2GBAAAAAElFTkSuQmCC">
+    </div>
     <div class="img-enigma">
         <div class="img-e1">
 
-            <button class="Enigmas"> Enigma Olimpiano </button>
+            <div class="en2" style="margin-top: 100px;">
+                <button class="Enigmas" (click)="fase02()"> Enigma Olimpiano </button>
+            </div>
+            <div class="en2">
+                <div class="Enigmas" style="display:flex; justify-content: center; margin-top: 5px;">{{fase2}}</div>
+            </div>
 
         </div>
         <div class="img-e2">
-
-            <button class="Enigmas" (click)="fase()"> Enigma Original </button>
+            <div class="en2" style="margin-top: 100px;">
+                <button class="Enigmas" (click)="fase()"> Enigma Original </button>
+            </div>
+            <div class="en2">
+                <div class="Enigmas" style="display:flex; justify-content: center; margin-top: 5px;">{{fase1}}</div>
+            </div>
 
         </div>
         <div class="img-e3">
 
-            <button class="Enigmas"> Enigma Cerimonial </button>
+            <div class="en2" style="margin-top: 100px;">
+                <button class="Enigmas" (click)="fase03()"> Enigma Cerimonial </button>
+            </div>
+            <div class="en2">
+                <div class="Enigmas" style="display:flex; justify-content: center; margin-top: 5px;">{{fase3}}</div>
+            </div>
 
         </div>
     </div>

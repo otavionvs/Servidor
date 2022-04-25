@@ -64,14 +64,14 @@
 }
 
 .enigma {
-    height: 500px;
-    width: 600px;
+    height: 450px;
+    width: 500px;
     border: #11ca39 1px solid;
 }
 
 .nomesEn {
     height: 100px;
-    width: 600px;
+    width: 499px;
     border-bottom: #11ca39 solid 1px;
     display: flex;
     justify-content: center;
@@ -118,4 +118,20 @@
     background-color: #000000;
     color: #11ca39;
     border: 1px solid;
+}
+
+.remover {
+    height: 400px;
+    width: 400px;
+    border: #11ca39 1px solid;
+}
+
+.removerEn {
+    height: 100px;
+    width: 399px;
+    border-bottom: #11ca39 solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 180px;
 }

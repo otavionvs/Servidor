@@ -53,6 +53,34 @@ inserirRota('/verificar_cliente1',
             });
     });
 
+inserirRota('/verificar_cliente2',
+    function(dados, resposta) {
+        console.log(dados);
+        database(`UPDATE CLIENTE SET ENIGMAOLIMPIANO = "${dados.troca}" WHERE USER = "${dados.user}"`)
+            .then(result => {
+                console.log('Update Cliente En01 Inserida com Sucesso!');
+                resposta({ message: 'Update Cliente En02 Inserida com Sucesso!' });
+            }).catch(erro => {
+                console.log('Erro ao inserir o Update Cliente En01!');
+                resposta({ erro: erro });
+            });
+    });
+
+
+inserirRota('/verificar_cliente3',
+    function(dados, resposta) {
+        console.log(dados);
+        database(`UPDATE CLIENTE SET ENIGMACERIMONIAL = "${dados.troca}" WHERE USER = "${dados.user}"`)
+            .then(result => {
+                console.log('Update Cliente En01 Inserida com Sucesso!');
+                resposta({ message: 'Update Cliente En03 Inserida com Sucesso!' });
+            }).catch(erro => {
+                console.log('Erro ao inserir o Update Cliente En01!');
+                resposta({ erro: erro });
+            });
+    });
+
+
 inserirRota('/buscando_cliente',
     function(dados, resposta) {
         console.log(dados);

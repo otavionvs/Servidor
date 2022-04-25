@@ -9,7 +9,7 @@ export class ClienteService {
 
   constructor() { }
 
-  AtualizarEnigmaOlimpo(troca, user){
+  AtualizarEnigmaOriginal(troca, user){
     return new Promise((resolve, reject) => {
       fetch('/api/verificar_cliente1', {
         method: 'POST',
@@ -29,6 +29,48 @@ export class ClienteService {
     });
   
       }
+
+      AtualizarEnigmaOlimpiano(troca, user){
+        return new Promise((resolve, reject) => {
+          fetch('/api/verificar_cliente2', {
+            method: 'POST',
+            body: JSON.stringify(
+                {
+                  troca: troca, user: user
+                  
+                }
+            ),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (result) {
+            return result.json();
+        }).then(resolve).catch(reject);
+        
+        });
+      
+          }
+        
+          AtualizarEnigmaCerimonial(troca, user){
+            return new Promise((resolve, reject) => {
+              fetch('/api/verificar_cliente2', {
+                method: 'POST',
+                body: JSON.stringify(
+                    {
+                      troca: troca, user: user
+                      
+                    }
+                ),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(function (result) {
+                return result.json();
+            }).then(resolve).catch(reject);
+            
+            });
+          
+              }
 
       buscandoCliente(user){
         return new Promise((resolvido, rejeitado) => {

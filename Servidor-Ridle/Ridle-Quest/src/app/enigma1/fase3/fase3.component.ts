@@ -3,14 +3,12 @@ import {Router} from '@angular/router';
 import { Enigma1Service } from 'src/app/services/enigma1.service';
 import { ClienteService } from 'src/app/services/cliente.service';
 
-
 @Component({
-  selector: 'app-fase1',
-  templateUrl: './fase1.component.html',
-  styleUrls: ['./fase1.component.css']
+  selector: 'app-fase3',
+  templateUrl: './fase3.component.html',
+  styleUrls: ['./fase3.component.css']
 })
-export class Fase1Component implements OnInit {
-
+export class Fase3Component implements OnInit {
 
   resposta = "";
   contador = 0;
@@ -30,9 +28,9 @@ export class Fase1Component implements OnInit {
     .then((resultado2:any) => {
       console.log(resultado2);
       if(localStorage.getItem('Visualizer')){
-        resultado2.cliente.ENIGMAORIGINAL = localStorage.getItem('Visualizer');
+        resultado2.cliente.ENIGMACERIMONIAL = localStorage.getItem('Visualizer');
       }
-    this.enigma1Service.buscarFase(resultado2.cliente.ENIGMAORIGINAL)
+    this.enigma1Service.buscarFase3(resultado2.cliente.ENIGMACERIMONIAL)
     .then((resultado:any) => {
       console.log(resultado);
       this.teste = resultado.fases.HEAD;
@@ -52,11 +50,8 @@ export class Fase1Component implements OnInit {
     alert (this.alert);
   }
 
-//{{head}} - aqui é pra por no html
-//localStorage.getItem('USER')
-
   verificar(){
-    this.enigma1Service.VerificarFase(this.resposta, this.contador)
+    this.enigma1Service.VerificarFase3(this.resposta, this.contador)
     .then((resultado:any) => {
       
       console.log(resultado.fases.FASE)
@@ -85,7 +80,7 @@ export class Fase1Component implements OnInit {
   }
 
   trocaFase(){
-    this.clienteService.AtualizarEnigmaOriginal(this.contador + 1, localStorage.getItem('USER'))
+    this.clienteService.AtualizarEnigmaCerimonial(this.contador + 1, localStorage.getItem('USER'))
     .then((resultado:any) => {
       console.log(resultado);
 
@@ -93,6 +88,5 @@ export class Fase1Component implements OnInit {
       console.log('Erro ao buscar usuarios', erro)
     })
   }
-  }
 
-
+}

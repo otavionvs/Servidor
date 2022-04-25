@@ -20,8 +20,6 @@ export class VerFasesComponent implements OnInit {
     
   }
   
-  
-
   ngOnInit() {
     localStorage.removeItem('Visualizer');
     this.clienteService.buscandoCliente(localStorage.getItem('USER'))

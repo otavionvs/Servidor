@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
+import {
+  AuthService,
+  GoogleLoginProvider
+} from 'angular-6-social-login-v2';
 
 @Component({
   selector: 'app-logins',
@@ -15,7 +19,8 @@ export class LoginsComponent implements OnInit {
 
   constructor(
     private usuarioService: UsuarioService,
-    private router: Router
+    private router: Router,
+    private socialAuthService: AuthService
   ) { }
 
   ngOnInit() {
@@ -55,7 +60,25 @@ export class LoginsComponent implements OnInit {
   cadastrar(){
     this.router.navigate(['/cadastro']);
   }
+
+  public socialSignIn(socialPlatform : string) {
+    let socialPlatformProvider;
+    if(socialPlatform == "google"){
+      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+    }
+    this.socialAuthService.signIn(socialPlatformProvider).then(
+      (userData) => {
+        console.log(socialPlatform+" sign in data : " , userData);
+        // Now sign-in with userData
+        // ...
+            
+      }
+    );
+  }
+  
 }
+
+
   
   
 

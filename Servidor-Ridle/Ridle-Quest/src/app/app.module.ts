@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 
 import { AbasComponent } from './principal/abas/abas.component';
 import { Fase1Component } from './enigma1/fase1/fase1.component';
+import { Fase3Component } from './enigma1/fase3/fase3.component';
+import { Fase2Component } from './enigma1/fase2/fase2.component';
 import { Enigma1Module } from './enigma1/enigma1.module';
 import { PrincipalModule } from './principal/principal.module';
 import { LoginModule } from './login/login.module';
@@ -20,17 +22,38 @@ import { CriarComponent } from './gerar-fases/criar/criar.component';
 import { GerarFasesModule } from './gerar-fases/gerar-fases.module';
 import { FormsModule } from '@angular/forms';
 
+import {
+  SocialLoginModule,
+  AuthServiceConfig,
+  GoogleLoginProvider,
+} from "angular-6-social-login-v2";
+
+
 
 const routes: Routes = [
   { path: '', component: LoginsComponent, canActivate: [] },
   { path: 'cadastro', component: CadastroComponent, canActivate: []  },
   { path: 'principal', component: AbasComponent, canActivate: [CheckLogged] },
   { path: 'Fase1', component: Fase1Component, canActivate: [CheckLogged]},
+  { path: 'Fase2', component: Fase2Component, canActivate: [CheckLogged]},
+  { path: 'Fase3', component: Fase3Component, canActivate: [CheckLogged]},
   { path: 'Fases', component: VerFasesComponent, canActivate: [CheckLogged]},
   { path: 'CriarFases', component: CriarComponent, canActivate: [CheckLogged]},
   
 ];
 
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+      [
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider("Your-Google-Client-Id")
+        },
+        
+      ]
+  );
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -45,9 +68,15 @@ const routes: Routes = [
     PrincipalModule,
     VisualFasesModule,
     GerarFasesModule,
+    SocialLoginModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [CheckLogged],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }, CheckLogged
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
